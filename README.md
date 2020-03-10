@@ -10,14 +10,26 @@ Laravel開発環境をサクッと構築できます！
 $ docker-compose up -d
   ```
   
-3.`http://localhost`を開いてLaravelのホーム画面が表示されていれば成功です！
+3.以下のコマンドでphpコンテナに入ります。
+```
+$ docker-compose exec php bash
+```
+
+4.laravelのプロジェクトを立ち上げましょう！
+```
+$ laravel new
+```
+
+5.`http://localhost/`でLaravelのウェルカムページが表示されたら成功です!
 
 止めたい時は以下のコマンドを入力してください。
 ```
 $  docker stop $(docker ps -q) 
 ```
 ---
+
 もし、`composer-setup.php`で失敗したら以下のURLページを参照し、
 `Dockerfile`中の`composer-setup.php`のハッシュ値を差し替えてください。
 https://getcomposer.org/download/
+
 ---
