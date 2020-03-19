@@ -2,7 +2,7 @@ version: '3'
 
 services:
   php:
-    container_name: php
+    container_name: laravel_php
     build: ./docker/php
     volumes:
       - ./server:/var/www
@@ -13,7 +13,7 @@ services:
 
   nginx:
     image: nginx
-    container_name: nginx
+    container_name: laravel_nginx
     ports:
       - 80:80
     volumes:
@@ -26,10 +26,10 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: db-host
+    container_name: laravel_db
     environment:
-      MYSQL_DATABASE: vuesplash
-      MYSQL_USER: lifebook
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
       TZ: 'Asia/Tokyo'
@@ -43,6 +43,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: laravel_admin
     ports:
       - 6565:80
     depends_on:
