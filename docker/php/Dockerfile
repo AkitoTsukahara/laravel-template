@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:8.0.6-fpm
 COPY php.ini /usr/local/etc/php/
 
 RUN apt-get update \
@@ -8,7 +8,7 @@ RUN apt-get update \
 RUN apt-get install -y \
     curl \
     gnupg
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install npm@latest -g
 
